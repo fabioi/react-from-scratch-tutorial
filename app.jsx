@@ -14,6 +14,7 @@ import ReactDOM from 'react-dom/client'
 
 
 // Definizione del componente principale App che renderizza un titolo
+// dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
 function App() {
     return (
         <h1>Hello Rect and Vite!</h1>
