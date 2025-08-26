@@ -9,9 +9,11 @@
  * - Other core application setup logic
  */
 
-// Importa ReactDOM dal modulo 'react-dom/client'
+// Import fondamentali per ogni applicazione React:
+// - React: libreria core per creare componenti e gestire la UI
+// - ReactDOM: libreria per manipolare il DOM e renderizzare React nel browser
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-
 
 // Definizione del componente principale App che renderizza un titolo
 // dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
