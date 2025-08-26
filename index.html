@@ -20,7 +20,12 @@
 <div id="app"></div>
 
 <!-- Questo script importa il punto di ingresso principale dell'applicazione React (app.jsx) che configura e avvia l'app -->
-<script type="module" src="/app.jsx"></script>
+<!-- Utilizziamo type="module" perché ci permette di:
+     1. Usare le importazioni/esportazioni ES6 (import/export)
+     2. Caricare moduli JavaScript in modo modulare e isolato
+     3. Avere un migliore controllo delle dipendenze
+     4. Evitare conflitti tra variabili globali -->
+<script type="module" src="/src/app.jsx"></script>
 
 </body>
 </html>
