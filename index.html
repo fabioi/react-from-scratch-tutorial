@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+
+<!-- React SPA Flow: 🧀
+* 1. index.html (static entry point) -> 🪙
+* 2. <div id="app"/> (mount point) -> 🧀
+* 3. app.jsx (React entry point) -> 🪙
+* 4. React.createRoot() (creates React container) -> 🧀
+* 5. root.render(<App/>) (renders app) -> 🪙
+* 6. Components render -> 🧀
+* 7. Virtual DOM updates -> 🪙
+* 8. Browser DOM updates 🧀 -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,23 +23,6 @@
 
 <h1>Hello React</h1>
 <div id="app"></div>
-
-<script type="text/babel">
-    const day = 'Monday';
-
-    function App() {
-        return (
-            <div>
-                <h2>Happy {new Date().toLocaleString('en-eu', {weekday: "long"})}!</h2>
-                <p>das
-                    I hope you have a great day!
-                </p>
-            </div>)
-    }
-
-    ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
-
-</script>
 
 </body>
 </html>
