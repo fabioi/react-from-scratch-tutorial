@@ -9,6 +9,10 @@
  * - Other core application setup logic
  */
 
+// Importa ReactDOM dal modulo 'react-dom/client'
+import ReactDOM from 'react-dom/client'
+
+
 // Definizione del componente principale App che renderizza un titolo
 function App() {
     return (
@@ -16,10 +20,13 @@ function App() {
     )
 }
 
-// Ottiene il riferimento all'elemento DOM con id 'app'
+// index.html è il punto di ingresso standard per le SPA React - contiene un elemento "root" (solitamente con id 'app') dove l'intera applicazione React viene montata e renderizzata
 const app = document.getElementById('app')
-// Crea una root React utilizzando l'elemento DOM selezionato
-const root: ReactDom.createRoot(app)
+
+// In React, una "root" rappresenta il punto di ingresso principale dell'applicazione nel DOM.
+// ReactDOM.createRoot() crea un contenitore React che gestisce l'aggiornamento efficiente 
+// del DOM tramite il Virtual DOM. È il metodo predefinito in React 18+ per il rendering.
+const root= ReactDOM.createRoot(app)
 
 // Renderizza il componente App all'interno della root
-root.render(<App/> >)
+root.render(<App/>)
