@@ -19,7 +19,7 @@ import ReactDOM from 'react-dom/client'
 // dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
 function App() {
     return (
-        <h1>Hello Rect and Vite!</h1>
+        <h1>Hello React and Vite!</h1>
     )
 }
 

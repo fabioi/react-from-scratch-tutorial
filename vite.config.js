@@ -2,7 +2,7 @@
 // Offre autocompletamento TypeScript e validazione delle opzioni di configurazione
 // È la funzione raccomandata per configurare Vite invece di esportare direttamente un oggetto
 import {defineConfig} from "vite"
-
+import react from "@vitejs/plugin-react"
 
 export default defineConfig({
     plugins: [
