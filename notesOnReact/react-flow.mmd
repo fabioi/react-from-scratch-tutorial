@@ -1,0 +1,9 @@
+graph TD
+    A[Browser] --> B{Carica index.html};
+    B --> C[index.html];
+    C --> D{Contiene <div id="root"></div>};
+D --> E[app.jsx];
+E --> F{Trova #root e inietta App.jsx};
+F --> G[App.jsx];
+G --> H{Importa altri Componenti};
+H --> I[UI Completa];

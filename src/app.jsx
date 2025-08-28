@@ -14,17 +14,19 @@
 // - ReactDOM: libreria per manipolare il DOM e renderizzare React nel browser
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './app.css'
+
 
 // Definizione del componente principale App che renderizza un titolo
 // dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
 function App() {
     return (
-        <h1>Hello React and Vite!</h1>
+        <h1 style={{background: 'red'}}>Hello React and Vite!</h1>
     )
 }
 
 // index.html è il punto di ingresso standard per le SPA React - contiene un elemento "root" (solitamente con id 'app') dove l'intera applicazione React viene montata e renderizzata
-const app = document.getElementById('app')
+const app = document.getElementById('root')
 
 // In React, una "root" rappresenta il punto di ingresso principale dell'applicazione nel DOM.
 // ReactDOM.createRoot() crea un contenitore React che gestisce l'aggiornamento efficiente 
