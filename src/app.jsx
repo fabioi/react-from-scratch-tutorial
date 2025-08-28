@@ -26,12 +26,13 @@ function App() {
 }
 
 // index.html è il punto di ingresso standard per le SPA React - contiene un elemento "root" (solitamente con id 'app') dove l'intera applicazione React viene montata e renderizzata
-const app = document.getElementById('root')
-
 // In React, una "root" rappresenta il punto di ingresso principale dell'applicazione nel DOM.
-// ReactDOM.createRoot() crea un contenitore React che gestisce l'aggiornamento efficiente 
+// ReactDOM.createRoot() crea un contenitore React che gestisce l'aggiornamento efficiente
 // del DOM tramite il Virtual DOM. È il metodo predefinito in React 18+ per il rendering.
-const root= ReactDOM.createRoot(app)
+
+createRoo
+
+
 
 // Renderizza il componente App all'interno della root
 root.render(<App/>)
