@@ -1,5 +1,5 @@
 /*
- * app.jsx - Main Application Component File
+ * entry.jsx - Main Application Component File
  * 
  * This is the main entry point for a React application. It typically contains:
  * - The root App component that serves as the application's container
@@ -13,17 +13,9 @@
 // - React: libreria core per creare componenti e gestire la UI
 // - ReactDOM: libreria per manipolare il DOM e renderizzare React nel browser
 import React, {StrictMode} from 'react'
-import ReactDOM, {createRoot} from 'react-dom/client'
+import {createRoot} from 'react-dom/client'
 import './app.css'
-
-
-// Definizione del componente principale App
-// dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
-function App() {
-    return (
-        <h1 className="font-mono text-4xl">Hello React and Vite!</h1>
-    )
-}
+import {App} from './App'
 
 // index.html è il punto di ingresso standard per le SPA React - contiene un elemento "root" (solitamente con id 'app') dove l'intera applicazione React viene montata e renderizzata
 // In React, una "root" rappresenta il punto di ingresso principale dell'applicazione nel DOM.
@@ -32,10 +24,6 @@ function App() {
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <App/>
+        <App />
     </StrictMode>
 );
-
-
-// Renderizza il componente App all'interno della root
-root.render(<App/>)
