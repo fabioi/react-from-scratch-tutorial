@@ -7,6 +7,7 @@ import {Header} from "./components/Header";
 import {Search} from "./components/Search.jsx";
 import {PuppiesList} from "./components/PuppiesList.jsx";
 import {PuppyForm} from "./components/PuppyForm.jsx";
+import {ShortList} from "./components/ShortList.jsx";
 
 export function App() {
     return (
@@ -22,14 +23,17 @@ export function App() {
 
 function Main() {
     return (
-        <>
+        <main>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2"></div>
             {/* Search & Shortlist */}
-            <Search/>
+            <Search>
+                <ShortList/>
+            </Search>
             {/* Puppies list */}
             <PuppiesList/>
             {/* New Puppy form */}
             <PuppyForm/>
-        </>
+        </main>
     );
 }
 
