@@ -21,7 +21,7 @@ import './app.css'
 // dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
 function App() {
     return (
-        <h1 style={{background: 'red'}}>Hello React and Vite!</h1>
+        <h1 className="font-mono text-4xl">Hello React and Vite!</h1>
     )
 }
 
