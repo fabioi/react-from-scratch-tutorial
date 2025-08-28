@@ -13,11 +13,11 @@
 // - React: libreria core per creare componenti e gestire la UI
 // - ReactDOM: libreria per manipolare il DOM e renderizzare React nel browser
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM, {createRoot} from 'react-dom/client'
 import './app.css'
 
 
-// Definizione del componente principale App che renderizza un titolo
+// Definizione del componente principale App
 // dato che `App` viene usata nello stesso file in cui è definita per essere renderizzata, non è necessario esportarla
 function App() {
     return (
@@ -30,7 +30,7 @@ function App() {
 // ReactDOM.createRoot() crea un contenitore React che gestisce l'aggiornamento efficiente
 // del DOM tramite il Virtual DOM. È il metodo predefinito in React 18+ per il rendering.
 
-createRoo
+createRoot(document.getElementById('root')).render(<App/>)
 
 
 
