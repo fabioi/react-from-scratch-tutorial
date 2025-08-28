@@ -2,44 +2,38 @@ const puppies = [
     {
         id: 1,
         name: "Frisket",
-        description: "Mother of all pups",
-        image: "/images/1.jpg",
-        isLiked: false
+        trait: "Mother of all pups",
+        imagePath: "/images/1.jpg",
     },
     {
         id: 2,
         name: "Chase",
-        description: "Very good boi",
-        image: "/images/2.jpg",
-        isLiked: true
+        trait: "Very good boi",
+        imagePath: "/images/2.jpg",
     },
     {
         id: 3,
         name: "Leia",
-        description: "Enjoys naps",
-        image: "/images/3.jpg",
-        isLiked: true
+        trait: "Enjoys naps",
+        imagePath: "/images/3.jpg",
     },
     {
         id: 4,
         name: "Pupi",
-        description: "Loves cheese",
-        image: "/images/4.jpg",
-        isLiked: false
+        trait: "Loves cheese",
+        imagePath: "/images/4.jpg",
     },
     {
         id: 5,
         name: "Russ",
-        description: "Ready to save the world",
-        image: "/images/5.jpg",
-        isLiked: false
+        trait: "Ready to save the world",
+        imagePath: "/images/5.jpg",
     },
     {
         id: 6,
         name: "Yoko",
-        description: "Ready for anything",
-        image: "/images/6.jpg",
-        isLiked: false
+        trait: "Ready for anything",
+        imagePath: "/images/6.jpg",
     }
 ];
 
