@@ -11,6 +11,7 @@ export function App() {
             {/* Max-width container */}
             <Container>
                 <Header/>
+                <main></main>
             </Container>
         </PageWrapper>
     )
