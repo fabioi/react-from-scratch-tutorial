@@ -38,7 +38,6 @@ export function Search({children}) {
                     </div>
                 </div>
                 {children}
-
             </div>
         </>
     );
