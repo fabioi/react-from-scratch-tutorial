@@ -8,6 +8,7 @@ import {Search} from "./components/Search.jsx";
 import {PuppiesList} from "./components/PuppiesList.jsx";
 import {PuppyForm} from "./components/PuppyForm.jsx";
 import {ShortList} from "./components/ShortList.jsx";
+import {puppies} from "./data/puppies.js";
 
 export function App() {
     return (
@@ -30,7 +31,7 @@ function Main() {
                 <ShortList/>
             </Search>
             {/* Puppies list */}
-            <PuppiesList/>
+            <PuppiesList puppies={puppies}/>
             {/* New Puppy form */}
             <PuppyForm/>
         </main>
