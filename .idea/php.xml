@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="79595705-088c-41f1-ab73-26c57c93f64c" timeout="30000" />
+    </phpcs_settings>
+  </component>
+</project>

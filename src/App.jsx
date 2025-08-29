@@ -8,7 +8,7 @@ import {Search} from "./components/Search.jsx";
 import {PuppiesList} from "./components/PuppiesList.jsx";
 import {PuppyForm} from "./components/PuppyForm.jsx";
 import {ShortList} from "./components/ShortList.jsx";
-import {puppies} from "./data/puppies.js";
+import {puppies} from "./data/puppies.ts";
 
 export function App() {
     return (

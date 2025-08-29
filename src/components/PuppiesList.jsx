@@ -27,7 +27,7 @@ function PuppyCard({puppy}){
                 <div className="flex items-center gap-2">
                     <p className="font-semibold">{puppy.name}</p>
                     <span className="text-slate-300">·</span>
-                    <p className="text-slate-500">{puppy.trait}</p>
+                    <p className="text-slate-500">{puppy.vibe}</p>
                 </div>
                 <button className="group">
                     <svg
