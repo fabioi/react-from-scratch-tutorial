@@ -1,5 +1,6 @@
+import {type Puppy} from "../data/puppies";
 
-export function PuppiesList({puppies}) {
+export function PuppiesList({puppies} : {puppies: Puppy[]}) {
     return (
         <>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
