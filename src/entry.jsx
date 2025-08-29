@@ -15,7 +15,7 @@
 import React, {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import './app.css'
-import {App} from './App'
+import {App} from './App.js'
 
 // index.html è il punto di ingresso standard per le SPA React - contiene un elemento "root" (solitamente con id 'app') dove l'intera applicazione React viene montata e renderizzata
 // In React, una "root" rappresenta il punto di ingresso principale dell'applicazione nel DOM.

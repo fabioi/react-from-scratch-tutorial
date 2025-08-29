@@ -4,11 +4,11 @@
 import {PageWrapper} from "./components/PageWrapper";
 import {Container} from "./components/Container";
 import {Header} from "./components/Header";
-import {Search} from "./components/Search.jsx";
-import {PuppiesList} from "./components/PuppiesList.tsx";
-import {PuppyForm} from "./components/PuppyForm.jsx";
-import {ShortList} from "./components/ShortList.jsx";
-import {puppies} from "./data/puppies.ts";
+import {Search} from "./components/Search";
+import {PuppiesList} from "./components/PuppiesList";
+import {PuppyForm} from "./components/PuppyForm";
+import {ShortList} from "./components/ShortList";
+import {puppies} from "./data/puppies";
 
 export function App() {
     return (

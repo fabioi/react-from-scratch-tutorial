@@ -1,4 +1,4 @@
-import {type Puppy} from "../data/puppies";
+import {type Puppy} from "../types";
 
 export function PuppiesList({puppies} : {puppies: Puppy[]}) {
     return (
