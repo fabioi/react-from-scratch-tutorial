@@ -9,6 +9,8 @@ import {PuppiesList} from "./components/PuppiesList";
 import {PuppyForm} from "./components/PuppyForm";
 import {ShortList} from "./components/ShortList";
 import {puppies} from "./data/puppies";
+import {useState} from "react";
+
 
 export function App() {
     return (
@@ -23,15 +25,19 @@ export function App() {
 }
 
 function Main() {
+    const [liked, setLiked] = useState<number[]>([]);
+
+
     return (
         <main>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2"></div>
-            {/* Search & Shortlist */}
-            <Search>
-                <ShortList/>
-            </Search>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+                {/* Search & Shortlist */}
+                <Search>
+                    <ShortList/>
+                </Search>
+            </div>
             {/* Puppies list */}
-            <PuppiesList puppies={puppies}/>
+            <PuppiesList puppies={puppies} liked={liked} setLiked={setLiked}/>
             {/* New Puppy form */}
             <PuppyForm/>
         </main>
