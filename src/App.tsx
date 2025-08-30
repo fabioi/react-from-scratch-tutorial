@@ -10,6 +10,7 @@ import {PuppyForm} from "./components/PuppyForm";
 import {ShortList} from "./components/ShortList";
 import {puppies} from "./data/puppies";
 import {useState} from "react";
+import {Puppy} from "./types";
 
 
 export function App() {
@@ -25,8 +26,7 @@ export function App() {
 }
 
 function Main() {
-    const [liked, setLiked] = useState<number[]>([]);
-
+    const [liked, setLiked] = useState<Puppy['id'][]>([]);
 
     return (
         <main>

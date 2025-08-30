@@ -8,7 +8,7 @@ export function PuppiesList({
                                 setLiked
                             }: {
     puppies: Puppy[]
-    liked: number[]
+    liked: Puppy['id'][]
     setLiked: Dispatch<SetStateAction<number[]>>;
 }) {
     return (
@@ -26,7 +26,7 @@ export function PuppiesList({
 
 interface PuppyCardProps {
     puppy: Puppy;
-    liked: number[];
+    liked: Puppy['id'][];
     setLiked: Dispatch<SetStateAction<number[]>>;
 }
 
