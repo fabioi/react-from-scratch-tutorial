@@ -8,10 +8,6 @@ export function LikeToggle({puppy, liked, setLiked}: {
     liked: Puppy['id'][],
     setLiked: (value: React.SetStateAction<number[]>) => void;
 }) {
-    // We have destructured the react use state hook here
-    // This is the React hook because allows to hook in the way  react internally re-renders components
-    const [isLiked, setIsLiked] = useState(false);
-
     return (
         <button className="group" onClick={() => {
             // If the puppy is already liked remove it from the liked array otherwise add the puppy to the liked array.

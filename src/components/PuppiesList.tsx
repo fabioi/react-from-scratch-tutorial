@@ -24,13 +24,11 @@ export function PuppiesList({
     );
 }
 
-interface PuppyCardProps {
+function PuppyCard({puppy, liked, setLiked}: {
     puppy: Puppy;
     liked: Puppy['id'][];
     setLiked: Dispatch<SetStateAction<number[]>>;
-}
-
-function PuppyCard({puppy, liked, setLiked}: PuppyCardProps) {
+}) {
     return (
         <li
             key={puppy.id}

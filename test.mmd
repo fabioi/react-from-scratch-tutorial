@@ -1,0 +1,128 @@
+graph TD
+subgraph "1. Controlli dell'Amministrazione Finanziaria (Capitolo 5)"
+A["Dichiarazione dei Redditi Presentata"] --> B{"Controllo Automatizzato<br/>(Art. 36bis D.P.R. 600/73)"};
+B --> B1{"Esito: Dati della Dichiarazione<br/>corrispondono a quelli del Fisco?"};
+B1 --"No: Irregolarità"--> C["Comunicazione di Irregolarità<br/>(Avviso Bonario - Art. 36bis c.3)"];
+C --> C1{"Contribuente fornisce chiarimenti<br/>entro 60 giorni?"};
+C1 --"Sì"--> C2["Valutazione Chiarimenti da parte dell'AF"];
+C2 --"Chiarimenti accettati"--> Z["Processo di Controllo Concluso"];
+C2 --"Chiarimenti non accettati"--> D{"Irregolarità persistono /<br/>Necessità di approfondimento?"};
+C1 --"No"--> D;
+B1 --"Sì: Regolare"--> Z;
+
+D --"Sì: Criteri selettivi di rischio"--> E["Controllo Formale<br/>(Art. 36ter D.P.R. 600/73)"];
+E --> E1{"Esito Controllo Formale"};
+E1 --"Regolare"--> Z;
+E1 --"Irregolare"--> F["Attività Istruttoria / Controllo Sostanziale<br/>(es. Indagini Bancarie, Verifiche - Art. 31 DPR 600/73)"];
+D --"No: Rischio rilevato"--> F;
+
+F["Attività Istruttoria / Controllo Sostanziale"] --> G{"Emergono elementi di evasione/infedeltà?"};
+G --"No"--> Z;
+G --"Sì"--> H["Redazione Processo Verbale di Constatazione (PVC)"];
+H --> H1{"Contribuente presenta osservazioni<br/>entro 60 giorni (Art. 12 Statuto)?"};
+H1 --"Sì"--> H2["Valutazione Ufficio Impositore"];
+H2 --"Accettate"--> Z;
+H2 --"Non accettate"--> I["Avviso di Accertamento"];
+H1 --"No"--> I;
+end
+
+subgraph "2. Accertamento e Istituti Deflativi (Cap. 6, parte Cap. 5)"
+I["Avviso di Accertamento<br/>(Preceduto da Contrad. Preventivo se atto impugnabile e non escluso - Art. 6bis Statuto)"] --> I_tipo{"Tipo di Accertamento applicato"};
+I_tipo --"Rettifica singoli componenti"--> J1["Analitico-Contabile (Art. 39 c.1 DPR 600/73)"];
+I_tipo --"Incongruenze gravi, ISA"--> J2["Analitico-Induttivo (Art. 39 c.2 DPR 600/73)"];
+I_tipo --"Capacità di spesa, Redditometro/Spesometro"--> J3["Sintetico (Art. 38 DPR 600/73)"];
+I_tipo --"Omessa/Nulla dichiarazione"--> J4["D'Ufficio (Art. 41 DPR 600/73)"];
+I_tipo --"Segnalazioni specifiche"--> J5["Parziale (Art. 41bis DPR 600/73)"];
+
+I --> K{"Contribuente valuta l'atto di accertamento"};
+K --> K1{"Vuole definire prima del contenzioso?"};
+K1 --"Sì"--> L["Accertamento con Adesione<br/>(Riduzione sanzioni a 1/3 del minimo - Art. 2 D.Lgs. 218/97)"];
+L --> L1{"Accordo raggiunto?"};
+L1 --"Sì"--> L2["Pagamento somme concordate"];
+L2 --> End_Accertamento["Fase di Accertamento Conclusa"];
+L1 --"No"--> M["Contenzioso Tributario"];
+K1 --"No"--> M;
+
+K --> K2{"Richiede Autotutela<br/>(annullamento/correzione atto - Cap. 9, §9)?"};
+K2 --"Sì"--> K3["Valutazione istanza di Autotutela"];
+K3 --"Accolta"--> End_Accertamento;
+K3 --"Respinta"--> M;
+K2 --"No"--> M;
+
+B --> O["Ravvedimento Operoso<br/>(Regolarizzazione spontanea con sanzioni ridotte - Art. 13 D.Lgs. 472/97)"];
+O --> End_Accertamento;
+C --> O;
+end
+
+subgraph "3. Sanzioni (Capitolo 8)"
+End_Accertamento --> P{"Sanzioni da irrogare per violazione?"};
+P --"Sì"--> P1["Irrogazione Sanzioni Amministrative<br/>(Pecuniarie e Accessorie - Art. 16 D.Lgs. 472/97)"];
+P1 --> P2{"Ci sono estremi per reato tributario?"};
+P2 --"Sì"--> P3["Procedimento Penale Tributario (Cap. 8, §4)"];
+P2 --"No"--> Q["Versamento delle Sanzioni / Riscossione"];
+P --"No"--> Q;
+end
+
+subgraph "4. Contenzioso Tributario (Capitolo 9)"
+M["Contenzioso Tributario"] --> R["Ricorso alla Corte di Giustizia Tributaria di 1° Grado<br/>(Entro 60 giorni dalla notifica dell'atto impugnato - Art. 18 D.Lgs. 546/92)"];
+R --> R1{"Richiesta Sospensione Riscossione?"};
+R1 --"Sì"--> R2["Decisione della Corte sulla sospensione"];
+R2 --"Sospensione accordata"--> R3["Riscossione sospesa fino a sentenza di 1° grado"];
+R2 --"Sospensione respinta"--> S["Giudizio di Merito (1° Grado)"];
+R3 --> S;
+R1 --"No"--> S;
+
+S["Giudizio di Merito (1° Grado)"] --> S1["Sentenza di 1° Grado"];
+S1 --> S2{"Parte soccombente impugna in Appello?"};
+S2 --"No"--> S_End["Sentenza definitiva"];
+S2 --"Sì"--> T["Appello alla Corte di Giustizia Tributaria di 2° Grado<br/>(Entro 60 giorni dalla notifica della sentenza - Art. 52 D.Lgs. 546/92)"];
+T --> T1["Sentenza di 2° Grado"];
+T1 --> T2{"Parte soccombente ricorre in Cassazione?"};
+T2 --"No"--> S_End;
+T2 --"Sì"--> U["Ricorso in Cassazione<br/>(Giudizio di legittimità - Art. 276 D.Lgs. 546/92)"];
+U --> U1["Sentenza della Cassazione"];
+U1 --> S_End;
+
+M --> W["Conciliazione Giudiziale<br/>(In corso di giudizio - Art. 48 D.Lgs. 546/92)"];
+W --> W1{"Accordo raggiunto?"};
+W1 --"Sì"--> L2;
+W1 --"No"--> S;
+end
+
+subgraph "5. Riscossione e Rimborsi (Capitolo 7)"
+Q["Versamento / Riscossione"] --> Q1["Versamento Volontario<br/>(F24, Banche, Poste - Art. 17 D.Lgs. 241/97)"];
+Q1 --> Fin["Processo Concluso"];
+
+S_End["Sentenza definitiva"] --> V["Esecuzione delle Sentenze<br/>(Pagamento frazionato del tributo - Art. 68 D.Lgs. 546/92)"];
+V --> Q;
+
+Q["Versamento / Riscossione"] --> Q2["Iscrizione a Ruolo<br/>(per debiti non pagati - Art. 15 D.P.R. 602/73)"];
+Q2 --> Q3["Notifica Cartella di Pagamento<br/>(Intimazione a pagare entro 60 giorni - Art. 25 D.P.R. 602/73)"];
+Q3 --> Q4{"Pagamento della Cartella entro 60 giorni?"};
+Q4 --"Sì"--> Fin;
+Q4 --"No"--> Q5{"Richiesta Rateizzazione (Art. 19 D.P.R. 602/73)?"};
+Q5 --"Sì"--> Q6["Concessione Rateizzazione"];
+Q6 --> Fin;
+Q5 --"No"--> Q7["Esecuzione Forzata e Misure Cautelari<br/>(Fermo amministrativo, Ipoteca per debiti > €20.000, Pignoramento - Cap. 7, §6)"];
+Q7 --> Fin;
+
+Q["Versamento / Riscossione"] --> Q8["Rimborsi<br/>(su istanza, d'ufficio, compensazione - Cap. 7, §10)"];
+Q8 --> Fin;
+end
+
+%% Stili per i nodi
+classDef startNode fill:#E0F2F7,stroke:#00BCD4,stroke-width:2px,color:#333;
+classDef endNode fill:#E0F7FA,stroke:#00BCD4,stroke-width:2px,color:#333;
+classDef warningNode fill:#FFF8E1,stroke:#FFC107,stroke-width:2px,color:#333;
+classDef errorNode fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#333;
+classDef successNode fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px,color:#333;
+classDef processNode fill:#DCEDC8,stroke:#8BC34A,stroke-width:2px,color:#333;
+classDef decisionNode fill:#BBDEFB,stroke:#2196F3,stroke-width:2px,color:#333;
+
+class A startNode;
+class Z,Fin endNode;
+class C warningNode;
+class H,I,R,S,T,U errorNode;
+class J1,J2,J3,J4,J5,Q1 successNode;
+class L,O,W,Q6 processNode;
+class K3,Q8 decisionNode;
