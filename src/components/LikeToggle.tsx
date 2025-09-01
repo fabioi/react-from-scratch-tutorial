@@ -1,6 +1,5 @@
 import {Heart} from "lucide-react";
 import {type Puppy} from "../types";
-import {useState} from "react";
 
 
 export function LikeToggle({puppy, liked, setLiked}: {
