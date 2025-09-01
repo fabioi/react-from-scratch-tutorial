@@ -1,6 +1,16 @@
 import {Heart, X} from "lucide-react";
+import type {Puppy} from "../types";
+import {Dispatch, SetStateAction} from "react";
 
-export function ShortList() {
+export function ShortList({
+                              puppies,
+                              liked,
+                              setLiked
+                          }: {
+    puppies: Puppy[]
+    liked: Puppy['id'][]
+    setLiked: Dispatch<SetStateAction<number[]>>;
+}) {
     return (
         <>
             <div>
@@ -16,7 +26,7 @@ export function ShortList() {
     );
 }
 
-function ShortListItem(){
+function ShortListItem() {
     return (
         <li className="relative flex items-center overflow-clip rounded-md bg-white shadow-sm ring ring-black/5 transition duration-100 starting:scale-0 starting:opacity-0">
             <img

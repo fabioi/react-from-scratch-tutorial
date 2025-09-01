@@ -33,7 +33,7 @@ function Main() {
             <div className="mt-12 grid gap-8 sm:grid-cols-2">
                 {/* Search & Shortlist */}
                 <Search>
-                    <ShortList/>
+                    <ShortList puppies={puppies} liked={liked} setLiked={setLiked}/>
                 </Search>
             </div>
             {/* Puppies list */}
