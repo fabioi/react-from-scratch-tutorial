@@ -5,7 +5,7 @@ import {type Puppy} from "../types";
 export function LikeToggle({puppy, liked, setLiked}: {
     puppy: Puppy,
     liked: Puppy['id'][],
-    setLiked: (value: React.SetStateAction<number[]>) => void;
+    setLiked: (value: React.SetStateAction<Puppy['id'][]>) => void;
 }) {
     return (
         <button className="group" onClick={() => {

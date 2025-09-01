@@ -9,7 +9,7 @@ export function ShortList({
                           }: {
     puppies: Puppy[]
     liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<number[]>>;
+    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <>
@@ -37,7 +37,7 @@ function ShortListItem({
                        }: {
     puppy: Puppy
     liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<number[]>>;
+    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <li className="relative flex items-center overflow-clip rounded-md bg-white shadow-sm ring ring-black/5 transition duration-100 starting:scale-0 starting:opacity-0">

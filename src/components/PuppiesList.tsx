@@ -9,7 +9,7 @@ export function PuppiesList({
                             }: {
     puppies: Puppy[]
     liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<number[]>>;
+    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <>
@@ -27,7 +27,7 @@ export function PuppiesList({
 function PuppyCard({puppy, liked, setLiked}: {
     puppy: Puppy;
     liked: Puppy['id'][];
-    setLiked: Dispatch<SetStateAction<number[]>>;
+    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <li
