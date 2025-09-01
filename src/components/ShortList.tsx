@@ -1,16 +1,16 @@
 import {Heart, X} from "lucide-react";
 import type {Puppy} from "../types";
-import {Dispatch, SetStateAction} from "react";
+import {use} from "react";
+import {LikedContext} from "../context/liked-context";
 
 export function ShortList({
                               puppies,
-                              liked,
-                              setLiked
                           }: {
     puppies: Puppy[]
-    liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
+
+    const {liked, setLiked} = use(LikedContext);
+
     return (
         <>
             <div>
@@ -21,7 +21,7 @@ export function ShortList({
                 <ul className="mt-4 flex flex-wrap gap-4">
                     {
                         puppies.filter((puppy: Puppy) => liked.includes(puppy.id)).map((puppy) => (
-                            <ShortListItem key={puppy.id} puppy={puppy} liked={liked} setLiked={setLiked}/>
+                            <ShortListItem key={puppy.id} puppy={puppy}/>
                         ))
                     }
                 </ul>
@@ -32,13 +32,13 @@ export function ShortList({
 
 function ShortListItem({
                            puppy,
-                           liked,
-                           setLiked
                        }: {
     puppy: Puppy
-    liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
+
+    const {liked, setLiked} = use(LikedContext);
+
+
     return (
         <li className="relative flex items-center overflow-clip rounded-md bg-white shadow-sm ring ring-black/5 transition duration-100 starting:scale-0 starting:opacity-0">
             <img

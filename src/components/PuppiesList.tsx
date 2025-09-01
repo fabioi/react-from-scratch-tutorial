@@ -1,22 +1,17 @@
 import {type Puppy} from "../types";
 import {LikeToggle} from "./LikeToggle";
-import {Dispatch, SetStateAction} from "react";
 
 export function PuppiesList({
                                 puppies,
-                                liked,
-                                setLiked
                             }: {
     puppies: Puppy[]
-    liked: Puppy['id'][]
-    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {
                     puppies.map(puppy => (
-                        <PuppyCard key={puppy.id} puppy={puppy} liked={liked} setLiked={setLiked}/>
+                        <PuppyCard key={puppy.id} puppy={puppy}/>
                     ))
                 }
             </ul>
@@ -24,10 +19,8 @@ export function PuppiesList({
     );
 }
 
-function PuppyCard({puppy, liked, setLiked}: {
+function PuppyCard({puppy}: {
     puppy: Puppy;
-    liked: Puppy['id'][];
-    setLiked: Dispatch<SetStateAction<Puppy['id'][]>>;
 }) {
     return (
         <li
@@ -43,7 +36,7 @@ function PuppyCard({puppy, liked, setLiked}: {
                     <span className="text-slate-300">·</span>
                     <p className="text-slate-500">{puppy.vibe}</p>
                 </div>
-                <LikeToggle puppy={puppy} liked={liked} setLiked={setLiked}/>
+                <LikeToggle puppy={puppy}/>
             </div>
         </li>
     );

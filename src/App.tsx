@@ -34,10 +34,10 @@ function Main() {
             <LikedContext value={{liked, setLiked}}>
                 <div className="mt-12 grid gap-8 grid-cols-1">
                     <Search>
-                        <ShortList puppies={puppies} liked={liked} setLiked={setLiked}/>
+                        <ShortList puppies={puppies}/>
                     </Search>
                 </div>
-                <PuppiesList puppies={puppies} liked={liked} setLiked={setLiked}/>
+                <PuppiesList puppies={puppies}/>
             </LikedContext>
             <PuppyForm/>
         </main>

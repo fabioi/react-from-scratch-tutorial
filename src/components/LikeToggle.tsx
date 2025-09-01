@@ -1,12 +1,14 @@
 import {Heart} from "lucide-react";
 import {type Puppy} from "../types";
+import {LikedContext} from "../context/liked-context";
+import {use} from "react";
 
 
-export function LikeToggle({puppy, liked, setLiked}: {
+export function LikeToggle({puppy}: {
     puppy: Puppy,
-    liked: Puppy['id'][],
-    setLiked: (value: React.SetStateAction<Puppy['id'][]>) => void;
 }) {
+    const {liked, setLiked} = use(LikedContext);
+
     return (
         <button className="group" onClick={() => {
             // If the puppy is already liked remove it from the liked array otherwise add the puppy to the liked array.
