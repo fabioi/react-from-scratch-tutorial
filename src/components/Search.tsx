@@ -1,7 +1,7 @@
 export function Search({children}) {
     return (
         <>
-            <div className="mt-24 grid gap-8 sm:grid-cols-2">
+            <div className="mt-24 grid grid-cols-2 gap-8">
                 {/* Search */}
                 <div>
                     <label htmlFor="search" className="font-medium">
