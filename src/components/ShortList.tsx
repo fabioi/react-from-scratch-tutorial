@@ -1,7 +1,6 @@
 import {Heart, X} from "lucide-react";
 import type {Puppy} from "../types";
-import {use} from "react";
-import {LikedContext} from "../context/liked-context";
+import {useLiked} from "../context/liked-context";
 
 export function ShortList({
                               puppies,
@@ -9,7 +8,7 @@ export function ShortList({
     puppies: Puppy[]
 }) {
 
-    const {liked, setLiked} = use(LikedContext);
+    const {liked, setLiked} = useLiked();
 
     return (
         <>
@@ -36,7 +35,7 @@ function ShortListItem({
     puppy: Puppy
 }) {
 
-    const {liked, setLiked} = use(LikedContext);
+    const {liked, setLiked} = useLiked();
 
 
     return (
