@@ -14,6 +14,7 @@ export function LikeToggle({puppy, liked, setLiked}: {
             if (liked.includes(puppy.id)) {
                 setLiked(liked.filter(id => id !== puppy.id));
             } else {
+                // add the puppy to the liked array (uses array destructuring to create a new array and add to the end)
                 setLiked([...liked, puppy.id]);
             }
         }}>
