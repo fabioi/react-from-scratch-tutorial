@@ -1,15 +1,20 @@
-export function Search({children}) {
+import {Dispatch, SetStateAction} from "react";
+
+export function Search({searchQuery, setSearchQuery}:{
+    searchQuery: string;
+    setSearchQuery: Dispatch<SetStateAction<string>>;
+}) {
     return (
         <>
             <div className="mt-24 grid grid-cols-2 gap-8">
-                {/* Search */}
                 <div>
                     <label htmlFor="search" className="font-medium">
                         Search for a character trait
                     </label>
                     <div className="mt-2 flex items-center gap-4">
                         <input
-                            placeholder="playful..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                             name="search"
                             id="search"
                             type="text"
@@ -37,7 +42,6 @@ export function Search({children}) {
                         </button>
                     </div>
                 </div>
-                {children}
             </div>
         </>
     );

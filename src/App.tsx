@@ -17,7 +17,6 @@ import {LikedContext} from "./context/liked-context";
 export function App() {
     return (
         <PageWrapper>
-            {/* Max-width container */}
             <Container>
                 <Header/>
                 <Main/>
@@ -27,17 +26,19 @@ export function App() {
 }
 
 function Main() {
+    // Creates a state variable to store the liked puppies.
+    // This will be passed to the LikedContext provider to make it available to all child components.
     const [liked, setLiked] = useState<Puppy['id'][]>([]);
+    const [searchQuery, setSearchQuery] = useState<string>("");
 
     return (
         <main>
             <LikedContext value={{liked, setLiked}}>
                 <div className="mt-12 grid gap-8 grid-cols-1">
-                    <Search>
-                        <ShortList puppies={puppies}/>
-                    </Search>
+                    <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+                    <ShortList puppies={puppies}/>
                 </div>
-                <PuppiesList puppies={puppies}/>
+            <PuppiesList searchQuery={searchQuery}   puppies={puppies}/>
             </LikedContext>
             <PuppyForm/>
         </main>
