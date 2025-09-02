@@ -1,10 +1,26 @@
-export function PuppyForm() {
+import {Puppy} from "../types";
+import {Dispatch, SetStateAction} from "react";
+
+export function PuppyForm({
+                              puppies,
+                              setPuppies
+                          }: {
+    puppies: Puppy[],
+    setPuppies: Dispatch<SetStateAction<Puppy[]>>
+}) {
     return (
         <>
             <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
                 <form
                     action={(formData: FormData) => {
-                        console.log(Object.fromEntries(formData));
+                        const newPuppy: Puppy = {
+                            id: puppies.length + 1,
+                            name: formData.get('name') as string,
+                            vibe: formData.get('vibe') as string,
+                            imagePath: 'images/' + (puppies.length + 1) + '.jpg',
+                        };
+
+                        console.log(newPuppy);
                     }}
                     className="mt-4 flex w-full flex-col items-start gap-4">
                     <div className="grid w-full gap-6 md:grid-cols-3">

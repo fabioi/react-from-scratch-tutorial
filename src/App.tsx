@@ -8,7 +8,7 @@ import {Search} from "./components/Search";
 import {PuppiesList} from "./components/PuppiesList";
 import {PuppyForm} from "./components/PuppyForm";
 import {ShortList} from "./components/ShortList";
-import {puppies} from "./data/puppies";
+import {puppies as puppiesData} from "./data/puppies";
 import {useState} from "react";
 import {Puppy} from "./types";
 import {LikedContext} from "./context/liked-context";
@@ -30,6 +30,7 @@ function Main() {
     // This will be passed to the LikedContext provider to make it available to all child components.
     const [liked, setLiked] = useState<Puppy['id'][]>([]);
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const[puppies, setPuppies] = useState<Puppy[]>(puppiesData);
 
     return (
         <main>
@@ -40,7 +41,7 @@ function Main() {
                 </div>
             <PuppiesList searchQuery={searchQuery}   puppies={puppies}/>
             </LikedContext>
-            <PuppyForm/>
+            <PuppyForm puppies={puppies} setPuppies={setPuppies}/>
         </main>
     );
 }
