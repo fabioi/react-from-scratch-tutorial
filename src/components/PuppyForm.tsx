@@ -16,12 +16,13 @@ export function PuppyForm({
                         const newPuppy: Puppy = {
                             id: puppies.length + 1,
                             name: formData.get('name') as string,
-                            vibe: formData.get('vibe') as string,
+                            vibe: formData.get('trait') as string,
                             imagePath: 'images/' + (puppies.length + 1) + '.jpg',
                         };
+                        setPuppies([...puppies, newPuppy]);
+                    }
 
-                        console.log(newPuppy);
-                    }}
+                    }
                     className="mt-4 flex w-full flex-col items-start gap-4">
                     <div className="grid w-full gap-6 md:grid-cols-3">
                         <fieldset className="flex w-full flex-col gap-1">
