@@ -2,7 +2,11 @@ export function PuppyForm() {
     return (
         <>
             <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
-                <form className="mt-4 flex w-full flex-col items-start gap-4">
+                <form
+                    action={(formData: FormData) => {
+                        console.log(Object.fromEntries(formData));
+                    }}
+                    className="mt-4 flex w-full flex-col items-start gap-4">
                     <div className="grid w-full gap-6 md:grid-cols-3">
                         <fieldset className="flex w-full flex-col gap-1">
                             <label htmlFor="name">Name</label>
