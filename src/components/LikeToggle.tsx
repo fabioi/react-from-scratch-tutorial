@@ -15,7 +15,7 @@ export function LikeToggle({puppy}: {
             setPending(true);
             setTimeout(() => {
 
-                // If the puppy is already liked remove it from the liked array otherwise add the puppy to the liked array.
+                // If the puppy is already liked, remove it from the liked array otherwise add the puppy to the liked array.
                 if (liked.includes(puppy.id)) {
                     setLiked(liked.filter(id => id !== puppy.id));
                 } else {
@@ -25,8 +25,6 @@ export function LikeToggle({puppy}: {
 
                 setPending(false);
             }, 1500)
-
-
 
         }}>
 

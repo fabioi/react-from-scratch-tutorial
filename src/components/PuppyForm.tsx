@@ -1,5 +1,6 @@
 import {Puppy} from "../types";
 import {Dispatch, SetStateAction} from "react";
+import {useFormStatus} from "react-dom";
 
 export function PuppyForm({
                               puppies,
@@ -12,7 +13,8 @@ export function PuppyForm({
         <>
             <div className="mt-12 flex items-center justify-between bg-white p-8 shadow ring ring-black/5">
                 <form
-                    action={(formData: FormData) => {
+                    action={async (formData: FormData) => {
+                        await new Promise((resolve) => setTimeout(resolve, 1500));
                         const newPuppy: Puppy = {
                             id: puppies.length + 1,
                             name: formData.get('name') as string,
@@ -56,14 +58,24 @@ export function PuppyForm({
                             />
                         </fieldset>
                     </div>
-                    <button
-                        className="mt-4 inline-block rounded bg-cyan-300 px-4 py-2 font-medium text-cyan-900 hover:bg-cyan-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-                        type="submit"
-                    >
-                        Add puppy
-                    </button>
+                    <SubmitButton/>
                 </form>
             </div>
         </>
+    );
+}
+
+function SubmitButton() {
+    // useFormStatus is a react hook to get the status of the form
+    const status = useFormStatus();
+
+    return (
+        <button
+            className="mt-4 inline-block rounded bg-cyan-300 px-4 py-2 font-medium text-cyan-900 hover:bg-cyan-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            type="submit"
+        >
+            {status.pending ? 'Adding puppet...' : 'Added puppet!'}
+
+        </button>
     );
 }
