@@ -30,6 +30,7 @@ export function PuppyForm({
                         <fieldset className="flex w-full flex-col gap-1">
                             <label htmlFor="name">Name</label>
                             <input
+                                required
                                 className="max-w-96 rounded-sm bg-white px-2 py-1 ring ring-black/20 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
                                 id="name"
                                 type="text"
@@ -43,6 +44,7 @@ export function PuppyForm({
                                 id="trait"
                                 type="text"
                                 name="trait"
+                                required
                             />
                         </fieldset>
                         <fieldset
@@ -55,6 +57,7 @@ export function PuppyForm({
                                 id="avatar_url"
                                 type="file"
                                 name="avatar_url"
+                                required
                             />
                         </fieldset>
                     </div>
