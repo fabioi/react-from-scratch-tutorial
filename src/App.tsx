@@ -9,7 +9,7 @@ import {PuppiesList} from "./components/PuppiesList";
 import {PuppyForm} from "./components/PuppyForm";
 import {ShortList} from "./components/ShortList";
 import {puppies as puppiesData} from "./data/puppies";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Puppy} from "./types";
 import {LikedContext} from "./context/liked-context";
 
@@ -34,6 +34,7 @@ function Main() {
 
     return (
         <main>
+            <ApiPuppies/>
             <LikedContext value={{liked, setLiked}}>
                 <div className="mt-12 grid gap-8 grid-cols-1">
                     <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
@@ -46,6 +47,37 @@ function Main() {
     );
 }
 
+function ApiPuppies() {
+const[apiPuppies, setApiPuppies] = useState<[]>([]);
+const[isLoading, setIsLoading] = useState<boolean>(false);
+
+    useEffect(
+        () => {
+            const getPuppies = async () => {
+                setIsLoading(true)
+                try {
+                    const response = await fetch('http://react-from-scratch-api.test/api/puppies')
+                    const data = await response.json()
+                    setApiPuppies(data)
+                    setIsLoading(false)
+                } catch (error) {
+                    console.error(error)
+                    setIsLoading(false)
+                }
+            }
+        getPuppies()
+
+    }, [
+        // when to re-fetch the data
+    ])
+
+
+    return (
+        <div className="bg-white p-8 shadow ring ring-black/5">
+            <p>Api Puppies</p>
+        </div>
+    )
+}
 
 
 
