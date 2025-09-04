@@ -9,9 +9,11 @@ import {PuppiesList} from "./components/PuppiesList";
 import {PuppyForm} from "./components/PuppyForm";
 import {ShortList} from "./components/ShortList";
 import {puppies as puppiesData} from "./data/puppies";
-import {useEffect, useState} from "react";
-import {Puppy} from "./types";
+import {Suspense, use, useEffect, useState} from "react";
+import {getPuppies, Puppy} from "./types";
 import {LikedContext} from "./context/liked-context";
+import { LoaderCircle } from "lucide-react";
+import { ErrorBoundary } from "react-error-boundary";
 
 
 export function App() {
@@ -34,7 +36,11 @@ function Main() {
 
     return (
         <main>
-            <ApiPuppies/>
+            <ErrorBoundary fallbackRender={() => <p>Error loading puppies</div>}>
+            <Suspense fallback={<LoaderCircle className="animate-spin stroke-slate-300"/>}>
+                <ApiPuppies/>
+            </Suspense>
+            </ErrorBoundary>
             <LikedContext value={{liked, setLiked}}>
                 <div className="mt-12 grid gap-8 grid-cols-1">
                     <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
@@ -46,38 +52,11 @@ function Main() {
         </main>
     );
 }
+const puppyPromise = getPuppies();
 
 function ApiPuppies() {
-const[apiPuppies, setApiPuppies] = useState<[]>([]);
-const[isLoading, setIsLoading] = useState<boolean>(false);
-
-    useEffect(
-        () => {
-            const getPuppies = async () => {
-                setIsLoading(true)
-                try {
-                    const response = await fetch('http://react-from-scratch-api.test/api/puppies')
-                    const data = await response.json()
-                    setApiPuppies(data)
-                    setIsLoading(false)
-                } catch (error) {
-                    console.error(error)
-                    setIsLoading(false)
-                }
-            }
-        getPuppies()
-
-    }, [
-        // when to re-fetch the data
-    ])
-
-
-    return (
-        <div className="bg-white p-8 shadow ring ring-black/5">
-            <p>Api Puppies</p>
-        </div>
-    )
+    const apiPuppies = use(puppyPromise)
+    
 }
 
-
-
+    

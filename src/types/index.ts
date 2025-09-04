@@ -5,3 +5,15 @@ export type Puppy = {
     vibe: string;
     imagePath: string;
 }
+
+
+export async function getPuppies() {
+    try {
+        const response = await fetch('http://react-from-scratch-api.test/api/puppies')
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error(error)
+        throw error
+    }
+}
